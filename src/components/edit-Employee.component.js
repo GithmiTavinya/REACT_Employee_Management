@@ -7,22 +7,22 @@ export default class EditEmployee extends Component {
         super(props);
 
         this.onChangeEmployeeID = this.onChangeEmployeeID.bind(this);
-        this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
+        this.onChangeEmployeeName = this.onChangeEmployeeName.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
-        this.onChangePostalCode = this.onChangePostalCode.bind(this);
+        this.onChangeTelephone = this.onChangeTelephone.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangeDescription = this.onChangeDescription.bind(this);
-        this.onChangeMaterials = this.onChangeMaterials.bind(this);
+        this.onChangeType = this.onChangeType.bind(this);
+        this.onChangeDiscription = this.onChangeDiscription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             EmployeeID: '',
-            CompanyName: '',
+            EmployeeName: '',
             Address: '',
-            PostalCode: '',
+            Telephone: '',
             Email: '',
-            Description: '',
-            Materials: '',
+            Type: '',
+            Discription: '',
             Employee: []
         }
     }
@@ -33,11 +33,11 @@ export default class EditEmployee extends Component {
                 this.setState({
                     EmployeeID: response.data.EmployeeID,
                     Address: response.data.Address,
-                    CompanyName: response.data.CompanyName,
-                    PostalCode: response.data.PostalCode,
+                    EmployeeName: response.data.EmployeeName,
+                    Telephone: response.data.Telephone,
                     Email: response.data.Email,
-                    Description: response.data.Description,
-                    Materials: response.data.Materials,
+                    Type: response.data.Type,
+                    Discription: response.data.Discription,
                 })
             })
             .catch(function(error) {
@@ -48,7 +48,7 @@ export default class EditEmployee extends Component {
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
-                        Employee: response.data.map(Employee => Employee.CompanyName),
+                        Employee: response.data.map(Employee => Employee.EmployeeName),
                     })
                 }
             })
@@ -72,19 +72,19 @@ export default class EditEmployee extends Component {
         })
     }
 
-    //set CompanyName
-    onChangeCompanyName(e) {
+    //set EmployeeName
+    onChangeEmployeeName(e) {
         this.setState({
-            CompanyName: e.target.value
+            EmployeeName: e.target.value
         })
     }
 
    
 
-    //set PostalCode
-    onChangePostalCode(e) {
+    //set Telephone
+    onChangeTelephone(e) {
         this.setState({
-            PostalCode: e.target.value
+            Telephone: e.target.value
         })
     }
 
@@ -95,17 +95,17 @@ export default class EditEmployee extends Component {
         })
     }
 
-     //set Description
-     onChangeDescription(e) {
+     //set Type
+     onChangeType(e) {
         this.setState({
-            Description: e.target.value
+            Type: e.target.value
         })
     }
 
-    //Set Materials
-    onChangeMaterials(e) {
+    //Set Discription
+    onChangeDiscription(e) {
         this.setState({
-            Materials: e.target.value
+            Discription: e.target.value
         })
     }
 
@@ -114,12 +114,12 @@ export default class EditEmployee extends Component {
 
         const Employee = {
             EmployeeID: this.state.EmployeeID,
-            CompanyName: this.state.CompanyName,
+            EmployeeName: this.state.EmployeeName,
             Address: this.state.Address,
-            PostalCode: this.state.PostalCode,
+            Telephone: this.state.Telephone,
             Email: this.state.Email,
-            Description: this.state.Description,
-            Materials: this.state.Materials
+            Type: this.state.Type,
+            Discription: this.state.Discription
 
         }
 
@@ -157,12 +157,12 @@ export default class EditEmployee extends Component {
              </div >
              
               <div className = "form-group" >
-            <label > Company Name: </label> 
+            <label > Employee Name: </label> 
             <input type = "text"
             required className = "form-control"
-            placeholder = "EnterCompany Name"
-            value = { this.state.CompanyName }
-            onChange = { this.onChangeCompanyName }/> </div > 
+            placeholder = "EnterEmployee Name"
+            value = { this.state.EmployeeName }
+            onChange = { this.onChangeEmployeeName }/> </div > 
              <div className = "form-group" >
             <label > Address: </label> 
             <input type = "text"
@@ -173,12 +173,12 @@ export default class EditEmployee extends Component {
             onChange = { this.onChangeAddress }/>
             </div > 
              <div className = "form-group" >
-            <label > Posta Code: </label>
+            <label > Telephone: </label>
              <input type = "text"
             className = "form-control"
-            placeholder = "Enter PostalCode"
-            value = { this.state.PostalCode }
-            onChange = { this.onChangePostalCode }/> </div > 
+            placeholder = "Enter Telephone"
+            value = { this.state.Telephone }
+            onChange = { this.onChangeTelephone }/> </div > 
              <div className = "form-group" >
            
             <div className = "form-group" >
@@ -190,21 +190,20 @@ export default class EditEmployee extends Component {
             onChange = { this.onChangeEmail }/>  </div> 
 
             <div className = "form-group" >
-            <label > Brief Description of company: </label> <
+            <label > Employee Type: </label> <
             input type = "text"
             required className = "form-control"
-            placeholder = "Enter a Brief Description of company"
-            value = { this.state.Description }
-            onChange = { this.onChangeDescription }/>  </div>
-
+            placeholder = "Employee Type"
+            value = { this.state.Type }
+            onChange = { this.onChangeType }/>  </div>
 
             <div className = "form-group" >
-            <label > SupplyMaterials And goods: </label> <
+            <label > Brief Discription of Employee: </label> <
             input type = "text"
             required className = "form-control"
-            placeholder = "Enter an SupplyMaterials And goods"
-            value = { this.state.Materials }
-            onChange = { this.onChangeMaterials }/>  </div>
+            placeholder = "Enter an Brief Discription of Employee"
+            value = { this.state.Discription }
+            onChange = { this.onChangeDiscription }/>  </div>
 
             
             
@@ -219,4 +218,8 @@ export default class EditEmployee extends Component {
         );
     }
 }
+
+
+
+
 

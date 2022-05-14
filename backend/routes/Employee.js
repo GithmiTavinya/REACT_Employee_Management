@@ -12,25 +12,24 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
 
     const EmployeeID = req.body.EmployeeID;
-    const CompanyName = req.body.CompanyName;
+    const EmployeeName = req.body.EmployeeName;
     const Address =req.body.Address;
     const Email = req.body.Email;
-    const PostalCode = req.body.PostalCode;
-    const Description = req.body.Description;
-    const Materials = req.body.Materials;
+    const Telephone = req.body.Telephone;
+    const Type = req.body.Type;
+    const Discription = req.body.Discription;
    
 
     const newEmployee  = new Employee({
         EmployeeID,
-        CompanyName,
+        EmployeeName,
         Address,
         Email,
-        PostalCode,
-        Description,
-        Materials
+        Telephone,
+        Type,
+        Discription
        
     });
-
 
     newEmployee.save()
         .then(() => res.json('Employee  added!'))
@@ -57,12 +56,12 @@ router.route('/update/:id').post((req, res) => {
     Employee.findById(req.params.id)
         .then(Employee => {
             Employee.EmployeeID = req.body.EmployeeID;
-            Employee.CompanyName = req.body.CompanyName;
+            Employee.EmployeeName = req.body.EmployeeName;
             Employee.Address = req.body.Address;
-            Employee.PostalCode = req.body.PostalCode;
+            Employee.Telephone = req.body.Telephone;
             Employee.Email = req.body.Email;
-            Employee.Description = req.body.Description;
-            Employee.Materials = req.body.Materials;
+            Employee.Type = req.body.Type;
+            Employee.Discription = req.body.Discription;
             
           
 
@@ -74,4 +73,8 @@ router.route('/update/:id').post((req, res) => {
 });
 
 module.exports = router;
+
+
+
+
 

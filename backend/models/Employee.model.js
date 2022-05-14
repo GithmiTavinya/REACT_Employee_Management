@@ -6,19 +6,21 @@ const Schema = mongoose.Schema;
 
 const EmployeeSchema = new Schema({
     EmployeeID: { type: Number, required: true },
-    CompanyName: { type: String, required: true },
+    EmployeeName: { type: String, required: true },
     Address: { type: String, required: true },
-    PostalCode: { type: String, required: true },
+    Telephone: { type: String, required: true },
     Email: { type: String, required: true },
-    Description: { type: String, required: true },
-    Materials: { type: String, required: true },
+    Type: { type: String, required: true },
+    Discription: { type: String, required: true },
 
 }, {
     timestamps: true,
 });
 
-
 const Employee  = mongoose.model('Employee ', EmployeeSchema);
 
 module.exports = Employee ;
+
+
+
 

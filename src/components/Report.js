@@ -7,12 +7,12 @@ const Employee = props => ( <
     tr >
     <
     td > { props.Employee.EmployeeID } </td> <
-    td > { props.Employee.CompanyName } </td> <
+    td > { props.Employee.EmployeeName } </td> <
     td > { props.Employee.Address } </td> <
-    td > { props.Employee.PostalCode } </td> <
+    td > { props.Employee.Telephone } </td> <
     td > { props.Employee.Email } </td> <
-    td > { props.Employee.Description } </td> <
-    td > { props.Employee.Materials } </td> <
+    td > { props.Employee.Type } </td> <
+    td > { props.Employee.Discription } </td> <
     td >
     <
     Link to = { "/edit/" + props.Employee._id } > Edit </Link> | <a href=" " onClick={() => { props.deleteEmployee(props.Employee._id) }}>Delete</a > </
@@ -27,7 +27,6 @@ export default class EmployeeList extends Component {
             Employee: []
         };
     }
-
 
     componentDidMount() {
         axios.get('http://localhost:5000/Employee/')
@@ -72,13 +71,10 @@ export default class EmployeeList extends Component {
     filterData(Employee, searchKey) {
 
         this.setState({
-            Employee: this.state.Employee.filter(el => el.CompanyName = searchKey)
+            Employee: this.state.Employee.filter(el => el.EmployeeName = searchKey)
         })
 
     }
-
-
-
 
     handleSearchArea = (e) => {
 
@@ -88,7 +84,7 @@ export default class EmployeeList extends Component {
 
             const resultt = response.data
             const result = resultt.filter((props) =>
-                props.CompanyName.includes(searchKey)
+                props.EmployeeName.includes(searchKey)
             )
 
             this.setState({ Employee: result })
@@ -125,12 +121,12 @@ export default class EmployeeList extends Component {
             tr >
             <
             th > Employee ID </th> <
-            th > Company Name </th> <
-            th > Company Street Address </th> <
+            th > Employee Name </th> <
+            th > Employee Street Address </th> <
             th > Postal Code </th> <
             th > E mail </th> <
-            th > Brief Description of company </th> <
-            th > Supply Materials And goods </th> </
+            th > Brief Type of Employee </th> <
+            th > Supply Discription And goods </th> </
             tr > </
             thead> <
             tbody >
@@ -141,12 +137,12 @@ export default class EmployeeList extends Component {
                     tr key = { props.EmployeeID } >
                     
                     <td > { props.EmployeeID } </td>  <
-                    td > { props.CompanyName } </td>  <
+                    td > { props.EmployeeName } </td>  <
                     td > { props.Address } </td>  <
-                    td > { props.PostalCode } </td>  < 
+                    td > { props.Telephone } </td>  < 
                     td > { props.Email } </td>  <  
-                    td > { props.Description } </td>  < 
-                    td > { props.Materials } </td>  
+                    td > { props.Type } </td>  < 
+                    td > { props.Discription } </td>  
                     
 
                     </tr>
@@ -169,4 +165,8 @@ export default class EmployeeList extends Component {
         )
     }
 }
+
+
+
+
 
