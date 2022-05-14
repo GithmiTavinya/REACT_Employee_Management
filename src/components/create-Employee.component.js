@@ -3,12 +3,11 @@ import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
 import swal from '@sweetalert/with-react'
 
-
-export default class CreateVendor extends Component {
+export default class CreateEmployee extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeVendorID = this.onChangeVendorID.bind(this);
+        this.onChangeEmployeeID = this.onChangeEmployeeID.bind(this);
         this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
         this.onChangePostalCode = this.onChangePostalCode.bind(this);
@@ -17,23 +16,22 @@ export default class CreateVendor extends Component {
         this.onChangeMaterials = this.onChangeMaterials.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-
         this.state = {
-            VendorID: '',
+            EmployeeID: '',
             CompanyName: '',
             Address: '',
             PostalCode: '',
             Email: '',
             Description: '',
             Materials: '',
-            Vendor: []
+            Employee: []
         }
     }
 
-    //set the VendorID 
-    onChangeVendorID(e) {
+    //set the EmployeeID 
+    onChangeEmployeeID(e) {
         this.setState({
-            VendorID: e.target.value
+            EmployeeID: e.target.value
         })
     }
 
@@ -87,8 +85,8 @@ export default class CreateVendor extends Component {
     onSubmit(e) {
         e.preventDefault();
        
-        const Vendor = {
-            VendorID: this.state.VendorID,
+        const Employee = {
+            EmployeeID: this.state.EmployeeID,
             CompanyName: this.state.CompanyName,
             Address: this.state.Address,
             PostalCode: this.state.PostalCode,
@@ -98,17 +96,17 @@ export default class CreateVendor extends Component {
 
         }
 
-        console.log(Vendor);
+        console.log(Employee);
 
         //validation
         
 
-            axios.post('http://localhost:5000/Vendor/add', Vendor)
+            axios.post('http://localhost:5000/Employee/add', Employee)
                 .then(res => console.log(res.data));
 
             swal({
                     title: "Done!",
-                    text: "Vendor Successfully Added",
+                    text: "Employee Successfully Added",
                     icon: "success",
                     button: "Okay!"
                 })
@@ -132,15 +130,15 @@ export default class CreateVendor extends Component {
             <div className = "col-md-8 mt-4 mx-auto" > </div> 
             <h3 className = "text-center" > 
             <font face = "Comic sans MS" size = "6" > 
-            New Vendor</font> </h3 >  
+            New Employee</font> </h3 >  
             <form onSubmit = { this.onSubmit } >
             <div className = "form-group" >
-            <label > Vendor ID: </label>
+            <label > Employee ID: </label>
             <input type = "Number"
             required className = "form-control"
-            placeholder = "Enter Vendor ID"
-            value = { this.state.VendorID }
-            onChange = { this.onChangeVendorID }/>
+            placeholder = "Enter Employee ID"
+            value = { this.state.EmployeeID }
+            onChange = { this.onChangeEmployeeID }/>
              </div >
              
               <div className = "form-group" >
@@ -185,7 +183,6 @@ export default class CreateVendor extends Component {
             onChange = { this.onChangeDescription }/>  </div>
 
 
-
             <div className = "form-group" >
             <label > SupplyMaterials And goods: </label> <
             input type = "text"
@@ -193,7 +190,6 @@ export default class CreateVendor extends Component {
             placeholder = "Enter SupplyMaterials And goods"
             value = { this.state.Materials }
             onChange = { this.onChangeMaterials }/>  </div>
-
 
             
             
@@ -208,3 +204,4 @@ export default class CreateVendor extends Component {
         );
     }
 }
+

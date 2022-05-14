@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class EditVendor extends Component {
+export default class EditEmployee extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeVendorID = this.onChangeVendorID.bind(this);
+        this.onChangeEmployeeID = this.onChangeEmployeeID.bind(this);
         this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
         this.onChangePostalCode = this.onChangePostalCode.bind(this);
@@ -15,24 +15,23 @@ export default class EditVendor extends Component {
         this.onChangeMaterials = this.onChangeMaterials.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-
         this.state = {
-            VendorID: '',
+            EmployeeID: '',
             CompanyName: '',
             Address: '',
             PostalCode: '',
             Email: '',
             Description: '',
             Materials: '',
-            Vendor: []
+            Employee: []
         }
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/Vendor/' + this.props.match.params.id)
+        axios.get('http://localhost:5000/Employee/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    VendorID: response.data.VendorID,
+                    EmployeeID: response.data.EmployeeID,
                     Address: response.data.Address,
                     CompanyName: response.data.CompanyName,
                     PostalCode: response.data.PostalCode,
@@ -45,11 +44,11 @@ export default class EditVendor extends Component {
                 console.log(error);
             })
 
-        axios.get('http://localhost:5000/Vendor/')
+        axios.get('http://localhost:5000/Employee/')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
-                        Vendor: response.data.map(Vendor => Vendor.CompanyName),
+                        Employee: response.data.map(Employee => Employee.CompanyName),
                     })
                 }
             })
@@ -59,10 +58,10 @@ export default class EditVendor extends Component {
 
     }
 
-    //set the VendorID 
-    onChangeVendorID(e) {
+    //set the EmployeeID 
+    onChangeEmployeeID(e) {
         this.setState({
-            VendorID: e.target.value
+            EmployeeID: e.target.value
         })
     }
 
@@ -113,8 +112,8 @@ export default class EditVendor extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const Vendor = {
-            VendorID: this.state.VendorID,
+        const Employee = {
+            EmployeeID: this.state.EmployeeID,
             CompanyName: this.state.CompanyName,
             Address: this.state.Address,
             PostalCode: this.state.PostalCode,
@@ -124,9 +123,9 @@ export default class EditVendor extends Component {
 
         }
 
-        console.log(Vendor);
+        console.log(Employee);
 
-        axios.post('http://localhost:5000/Vendor/update/' + this.props.match.params.id, Vendor)
+        axios.post('http://localhost:5000/Employee/update/' + this.props.match.params.id, Employee)
             .then(res => console.log(res.data));
         alert("Edit Successfully")
         window.location = '/';
@@ -146,15 +145,15 @@ export default class EditVendor extends Component {
             <div className = "col-md-8 mt-4 mx-auto" > </div> 
             <h3 className = "text-center" > 
             <font face = "Comic sans MS" size = "6" > 
-            Edit Vendor</font> </h3 >  
+            Edit Employee</font> </h3 >  
             <form onSubmit = { this.onSubmit } >
             <div className = "form-group" >
-            <label > Vendor ID: </label>
+            <label > Employee ID: </label>
             <input type = "Number"
             required className = "form-control"
-            placeholder = "Enter Vendor ID"
-            value = { this.state.VendorID }
-            onChange = { this.onChangeVendorID }/>
+            placeholder = "Enter Employee ID"
+            value = { this.state.EmployeeID }
+            onChange = { this.onChangeEmployeeID }/>
              </div >
              
               <div className = "form-group" >
@@ -199,7 +198,6 @@ export default class EditVendor extends Component {
             onChange = { this.onChangeDescription }/>  </div>
 
 
-
             <div className = "form-group" >
             <label > SupplyMaterials And goods: </label> <
             input type = "text"
@@ -207,7 +205,6 @@ export default class EditVendor extends Component {
             placeholder = "Enter an SupplyMaterials And goods"
             value = { this.state.Materials }
             onChange = { this.onChangeMaterials }/>  </div>
-
 
             
             
@@ -222,3 +219,4 @@ export default class EditVendor extends Component {
         );
     }
 }
+

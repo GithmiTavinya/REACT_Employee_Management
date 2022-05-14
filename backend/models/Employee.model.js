@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-//Databass Schema
+//Database Schema
 
-const VendorSchema = new Schema({
-    VendorID: { type: Number, required: true },
+const EmployeeSchema = new Schema({
+    EmployeeID: { type: Number, required: true },
     CompanyName: { type: String, required: true },
     Address: { type: String, required: true },
     PostalCode: { type: String, required: true },
@@ -18,7 +18,7 @@ const VendorSchema = new Schema({
 });
 
 
+const Employee  = mongoose.model('Employee ', EmployeeSchema);
 
-const Vendor  = mongoose.model('Vendor ', VendorSchema);
+module.exports = Employee ;
 
-module.exports = Vendor ;
