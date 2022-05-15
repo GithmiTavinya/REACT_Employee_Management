@@ -158,7 +158,7 @@ export default class CreateEmployee extends Component {
             onChange = { this.onChangeAddress }/>
             </div > 
              <div className = "form-group" >
-            <label > Posta Code: </label>
+            <label > Telephone: </label>
              <input type = "Number"
             className = "form-control"
             placeholder = "Enter Telephone"
