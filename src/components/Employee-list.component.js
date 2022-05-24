@@ -108,8 +108,23 @@ export default class EmployeeList extends Component {
             <
             div className = "col-lg-9 mt-2 mb-2" >
             <
-            h4 > All Employee </h4> </
-            div > <
+            h4 > ALL EMPLOYEES </h4> </
+            div > 
+            <
+            div className = "col-lg-3 mt-2 mb-2 text-right" style = {
+                { float: 'none' }
+            } >
+
+            <
+            Link to = "/create" >
+            <button type="button" class="btn btn-success" variant = "primary" style={{
+                background: "rgb(42 57 177)",
+    padding:"10px 20px"
+            }}> Add Employee </button>
+            </
+            Link >
+            </div>
+            <
             div className = "col-lg-3 mt-2 mb-2" >
             <
             input className = "form-control"
@@ -123,20 +138,20 @@ export default class EmployeeList extends Component {
             div>
 
             <
-            table class="table table-bordered table-white" >
+            table class="table table-bordered bg-light" >
             <
-            thead className = "thead-light" >
+            thead className = "thead-dark" >
             <
             tr >
             <
-            th > Employee ID </th> <
-            th > Employee Name </th> <
-            th > Employee Address </th> <
-            th > Telephone </th> <
-            th > E mail </th> <
-            th > Employee Type </th> <
-            th > Brief Discription of Employee </th> <
-            th > Actions </th> </
+            th className='align-middle'> Employee ID </th> <
+            th className='align-middle'> Employee Name </th> <
+            th className='align-middle'> Employee Address </th> <
+            th className='align-middle'> Telephone </th> <
+            th className='align-middle'> E mail </th> <
+            th className='align-middle'> Employee Type </th> <
+            th className='align-middle'> Brief Discription of Employee </th> <
+            th className='align-middle'> Actions </th> </
             tr > </
             thead> <
             tbody >
@@ -154,9 +169,9 @@ export default class EmployeeList extends Component {
                     td > { props.Type } </td>  < 
                     td > { props.Discription } </td>  <  
 
-                    td >
+                    td className='text-center'>
                     <
-                    Link to = { "/edit/" + props._id } >  <Button variant = "warning btn-sm"> Edit </Button> </Link>  
+                    Link to = { "/edit/" + props._id } className='mb-3 d-block'>  <Button variant = "info btn-sm"> Update </Button> </Link>  
                     <a href="" onClick={() => { this.deleteEmployee(props._id) }}> <Button variant = "danger btn-sm"> Delete </Button> </a > 
                     </
                     td >
@@ -169,17 +184,7 @@ export default class EmployeeList extends Component {
             </tbody> </
             table >
 
-            <
-            div style = {
-                { float: 'right' }
-            } >
-
-            <
-            Link to = "/create" >
-            <button type="button" class="btn btn-success" variant = "primary" > New Employee </button>
-            </
-            Link >
-            </div>
+            
 
             </div>
         )

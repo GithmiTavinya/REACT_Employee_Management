@@ -120,17 +120,14 @@ export default class CreateEmployee extends Component {
         return ( <div >
             <div class = "row" >
             <div class = "col-6" >
-            <br/ > < br/ > < br/ > < br/ > < br/ > < br/ >
-            <img src = "https://c.tenor.com/L5g2mZgoLykAAAAS/office-of-course.gif"
-            width = "90%"
-            height = "60% " />
-            </div> <div class = "col-6" >
+            <br/ >
+            </div> <div class = "col-12" >
             <div class = "myformstyle2" >
             <div className = "card-body" >
             <div className = "col-md-8 mt-4 mx-auto" > </div> 
             <h3 className = "text-center" > 
-            <font face = "Comic sans MS" size = "6" > 
-            New Employee</font> </h3 >  
+            <font face = "Poppins" size = "6" > 
+                ADD NEW EMPLOYEE</font> </h3 >  
             <form onSubmit = { this.onSubmit } >
             <div className = "form-group" >
             <label > Employee ID: </label>
@@ -194,7 +191,7 @@ export default class CreateEmployee extends Component {
             
             
             
-            </div > <div className = "form-group" >
+            </div > <div className = "form-group text-right" >
             <input type = "submit"
             value = "Create"
             className = "btn btn-primary" />

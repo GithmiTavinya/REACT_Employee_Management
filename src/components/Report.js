@@ -114,19 +114,19 @@ export default class EmployeeList extends Component {
             div>
 
             <
-            table class="table table-bordered table-white" >
+            table class="table table-bordered bg-light" >
             <
-            thead className = "thead-light" >
+            thead className = "thead-dark align-middle" >
             <
             tr >
             <
-            th > Employee ID </th> <
-            th > Employee Name </th> <
-            th > Employee Street Address </th> <
-            th > Postal Code </th> <
-            th > E mail </th> <
-            th > Brief Type of Employee </th> <
-            th > Supply Discription And goods </th> </
+            th className='align-middle'> Employee ID </th> <
+            th className='align-middle'> Employee Name </th> <
+            th className='align-middle'> Employee Street Address </th> <
+            th className='align-middle'> Postal Code </th> <
+            th className='align-middle'> E mail </th> <
+            th className='align-middle'> Brief Type of Employee </th> <
+            th className='align-middle'> Supply Discription And goods </th> </
             tr > </
             thead> <
             tbody >
@@ -155,11 +155,11 @@ export default class EmployeeList extends Component {
             <div className = "container" >
            
             
-            <input type = "Button"
+            {/*<input type = "Button"
             onClick = { this.Report }
             value = "Print This Report"
-            className = "btn btn-danger"/>
-            </div>
+        className = "btn btn-danger"/>*/}
+        </div>
 
             </div>
         )

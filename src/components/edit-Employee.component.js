@@ -127,25 +127,20 @@ export default class EditEmployee extends Component {
 
         axios.post('http://localhost:5000/Employee/update/' + this.props.match.params.id, Employee)
             .then(res => console.log(res.data));
-        alert("Edit Successfully")
+        alert("Update Successfully")
         window.location = '/';
     }
 
     render() {
         return ( <div >
             <div class = "row" >
-            <div class = "col-6" >
-            <br/ > < br/ > < br/ > < br/ > < br/ > < br/ >
-            <img src = "https://c.tenor.com/L5g2mZgoLykAAAAS/office-of-course.gif"
-            width = "90%"
-            height = "60% " />
-            </div> <div class = "col-6" >
+            <div class = "col-12" >
             <div class = "myformstyle2" >
             <div className = "card-body" >
             <div className = "col-md-8 mt-4 mx-auto" > </div> 
             <h3 className = "text-center" > 
-            <font face = "Comic sans MS" size = "6" > 
-            Edit Employee</font> </h3 >  
+            <font face = "Poppins" size = "6" > 
+            UPDATE EMPLOYEE</font> </h3 >  
             <form onSubmit = { this.onSubmit } >
             <div className = "form-group" >
             <label > Employee ID: </label>
@@ -209,9 +204,9 @@ export default class EditEmployee extends Component {
             
             
             
-            </div > <div className = "form-group" >
+            </div > <div className = "form-group text-right" >
             <input type = "submit"
-            value = "Edit"
+            value = "Update"
             className = "btn btn-primary" />
             </div> </form > </div> </div >  </div> </div >  <br/ > < br/ > 
              </div>

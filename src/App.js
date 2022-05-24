@@ -14,7 +14,7 @@ function App() {
     return ( <
         Router >
         <
-        div className = "container" >
+        div className = "container" style={{bacground:"#eff5ff"}}>
         <Navbar / >
         <br / >
         <Route path = "/" exact component = { EmployeeList }/>
