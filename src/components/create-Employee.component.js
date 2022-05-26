@@ -106,9 +106,9 @@ export default class CreateEmployee extends Component {
 
             swal({
                     title: "Done!",
-                    text: "Employee Successfully Added",
+                    text: "Added Successfully",
                     icon: "success",
-                    button: "Okay!"
+                    button: "Close"
                 })
                 .then((value) => {
                    window.location = '/';

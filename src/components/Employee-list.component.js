@@ -49,7 +49,7 @@ export default class EmployeeList extends Component {
     }
 
     deleteEmployee(id) {
-        if (window.confirm('Are you sure?')) {
+        if (window.confirm('Are you sure you want to delete this employee?')) {
             axios.delete('http://localhost:5000/Employee/' + id)
                 .then(response => { console.log(response.data) });
 
